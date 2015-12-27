@@ -6,7 +6,6 @@
   "scripts": {
     "build": "./node_modules/.bin/babel -d ./ ./src/",
     "watch": "watch 'npm run build' src ",
-    "deploy": "git pull --rebase && git push",
     "patch": "npm version patch",
     "minor": "npm version minor",
     "major": "npm version major"
@@ -16,8 +15,8 @@
     "url": "git+https://github.com/neikvon/koa-viewer.git"
   },
   "keywords": [
-    "koa",
-    "2",
+    "koa2",
+    "es7",
     "static",
     "serve"
   ],
