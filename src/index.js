@@ -1,10 +1,3 @@
-/*
- * @Author: inman
- * @Date:   2015-12-27 17:50:47
- * @Last Modified by:   inman
- * @Last Modified time: 2016-01-04 10:57:12
- */
-
 import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
