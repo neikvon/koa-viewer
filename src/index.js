@@ -2,7 +2,7 @@
  * @Author: inman
  * @Date:   2015-12-27 17:50:47
  * @Last Modified by:   inman
- * @Last Modified time: 2016-01-04 10:31:44
+ * @Last Modified time: 2015-12-27 18:02:38
  */
 
 import fs from 'fs';
@@ -28,7 +28,6 @@ const head = `
        margin: 0;
        padding: 0;
        font-size: 87.5%;
-       font-family: Consolas, Tahoma;
      }
      a{
        text-decoration: none;
