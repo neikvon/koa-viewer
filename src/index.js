@@ -94,7 +94,6 @@ const head = `
  * @return {[type]}      [description]
  */
 export default (root, opts) => {
-
   root = (!root || root === '') ? process.cwd() : root;
   opts = opts || {};
 

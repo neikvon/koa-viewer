@@ -4,100 +4,31 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _fs = require('fs');
+var _promise = require('babel-runtime/core-js/promise');
 
-var _fs2 = _interopRequireDefault(_fs);
+var _promise2 = _interopRequireDefault(_promise);
 
-var _path = require('path');
+var _typeof2 = require('babel-runtime/helpers/typeof');
 
-var _path2 = _interopRequireDefault(_path);
+var _typeof3 = _interopRequireDefault(_typeof2);
 
-var _glob = require('glob');
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
 
-var _glob2 = _interopRequireDefault(_glob);
+var _getIterator3 = _interopRequireDefault(_getIterator2);
 
-var _etag = require('etag');
+var _regenerator = require('babel-runtime/regenerator');
 
-var _etag2 = _interopRequireDefault(_etag);
+var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _mime = require('mime');
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
 
-var _mime2 = _interopRequireDefault(_mime);
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var genHtml = function () {
+  var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2(ctx, root, opts) {
+    var url, realPath, stats, settings, html, listHtml, listHtml_folder, listHtml_file, crumbHtml, list, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item, _list, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, _item, itemStats, dirUrl, urlArr, _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, u, type, charset, headers;
 
-function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } step("next"); }); }; }
-
-var head = '\n   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="apple-mobile-web-app-status-bar-style" content="black">\n   <meta name="format-detection" content="telephone=no">\n   <meta name="screen-orientation" content="portrait">\n   <meta name="x5-orientation" content="portrait">\n   <style>\n     *,\n     *:before,\n     *:after {\n       box-sizing: border-box;\n     }\n     body{\n       margin: 0;\n       padding: 0;\n       font-size: 87.5%;\n       font-family: Consolas, Tahoma;\n     }\n     a{\n       text-decoration: none;\n       color: #333;\n     }\n     a:hover{\n       background: #eaeaea;\n     }\n     ul{\n       list-style-type: none;\n       margin: 0;\n       padding: 0;\n     }\n     .crumb{\n       margin-bottom: 1em;\n       padding: 1em;\n       background: #333;\n     }\n     .crumb li{\n       display: inline;\n       margin-right: 5px;\n       color: #ccc;\n     }\n     .crumb li a{\n       color: #ccc;\n     }\n     .crumb li a:hover{\n       text-decoration: underline;\n       background: inherit;\n     }\n     .list{\n       margin-bottom: 1em;\n     }\n     .list li{\n       min-height: .5em;\n       display: inline-block;\n       width: 33.33%;\n     }\n     .list.block li{\n       width: 100%;\n     }\n     .list li a{\n       display: block;\n       padding: 0 1em;\n       line-height: 2;\n     }\n     @media only screen and (max-width : 768px) {\n       .list li{\n         display: block;\n         width: 100%;\n       }\n       .list li a{\n         line-height: 3;\n         border-bottom: 1px dotted #ccc;\n       }\n     }\n   </style>\n ';
-
-/**
- * [description]
- * @param  {[type]} root [description]
- * @param  {[json]} opts:
- {
-  flat: false,
-  cwd: realPath,
-  nodir: false,
-  dot: false
- }
- * @return {[type]}      [description]
- */
-
-exports.default = function (root, opts) {
-
-  root = !root || root === '' ? process.cwd() : root;
-  opts = opts || {};
-
-  return (function () {
-    var _this = this;
-
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(ctx, next) {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (next) {
-                _context.next = 6;
-                break;
-              }
-
-              _context.next = 3;
-              return genHtml(ctx, root, opts);
-
-            case 3:
-              return _context.abrupt('return', _context.sent);
-
-            case 6:
-
-              console.log('Send: ' + ctx.path);
-              _context.next = 9;
-              return genHtml(ctx, root, opts);
-
-            case 9:
-              ctx.body = _context.sent;
-              return _context.abrupt('return', next());
-
-            case 11:
-            case 'end':
-              return _context.stop();
-          }
-        }
-      }, _callee, _this);
-    }));
-
-    return function (_x, _x2) {
-      return ref.apply(this, arguments);
-    };
-  })();
-};
-
-var genHtml = (function () {
-  var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(ctx, root, opts) {
-    var url, realPath, stats, settings, html, listHtml, listHtml_folder, listHtml_file, crumbHtml, list, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, itemStats, dirUrl, urlArr, _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, u, type, charset, headers;
-
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+    return _regenerator2.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
@@ -147,7 +78,7 @@ var genHtml = (function () {
             _didIteratorError = false;
             _iteratorError = undefined;
             _context2.prev = 24;
-            for (_iterator = list[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            for (_iterator = (0, _getIterator3.default)(list); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
               item = _step.value;
 
               listHtml += '<li><a href="' + url + item + '">' + item + '</a></li>';
@@ -195,12 +126,12 @@ var genHtml = (function () {
             return globPromise('*', settings);
 
           case 45:
-            list = _context2.sent;
+            _list = _context2.sent;
             _iteratorNormalCompletion2 = true;
             _didIteratorError2 = false;
             _iteratorError2 = undefined;
             _context2.prev = 49;
-            _iterator2 = list[Symbol.iterator]();
+            _iterator2 = (0, _getIterator3.default)(_list);
 
           case 51:
             if (_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done) {
@@ -208,17 +139,17 @@ var genHtml = (function () {
               break;
             }
 
-            item = _step2.value;
+            _item = _step2.value;
             _context2.next = 55;
-            return statp(realPath + item);
+            return statp(realPath + _item);
 
           case 55:
             itemStats = _context2.sent;
 
             if (itemStats.isDirectory()) {
-              listHtml_folder += '<li><a href="' + url + item + '/">' + item + '/</a></li>';
+              listHtml_folder += '<li><a href="' + url + _item + '/">' + _item + '/</a></li>';
             } else {
-              listHtml_file += '<li><a href="' + url + item + '">' + item + '</a></li>';
+              listHtml_file += '<li><a href="' + url + _item + '">' + _item + '</a></li>';
             }
 
           case 57:
@@ -278,7 +209,7 @@ var genHtml = (function () {
             _iteratorError3 = undefined;
             _context2.prev = 84;
 
-            for (_iterator3 = urlArr[Symbol.iterator](); !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            for (_iterator3 = (0, _getIterator3.default)(urlArr); !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
               u = _step3.value;
 
               dirUrl += u + '/';
@@ -363,15 +294,97 @@ var genHtml = (function () {
   }));
 
   return function genHtml(_x3, _x4, _x5) {
-    return ref.apply(this, arguments);
+    return _ref2.apply(this, arguments);
   };
-})();
+}();
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _glob = require('glob');
+
+var _glob2 = _interopRequireDefault(_glob);
+
+var _etag = require('etag');
+
+var _etag2 = _interopRequireDefault(_etag);
+
+var _mime = require('mime');
+
+var _mime2 = _interopRequireDefault(_mime);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var head = '\n   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="apple-mobile-web-app-status-bar-style" content="black">\n   <meta name="format-detection" content="telephone=no">\n   <meta name="screen-orientation" content="portrait">\n   <meta name="x5-orientation" content="portrait">\n   <style>\n     *,\n     *:before,\n     *:after {\n       box-sizing: border-box;\n     }\n     body{\n       margin: 0;\n       padding: 0;\n       font-size: 87.5%;\n       font-family: Consolas, Tahoma;\n     }\n     a{\n       text-decoration: none;\n       color: #333;\n     }\n     a:hover{\n       background: #eaeaea;\n     }\n     ul{\n       list-style-type: none;\n       margin: 0;\n       padding: 0;\n     }\n     .crumb{\n       margin-bottom: 1em;\n       padding: 1em;\n       background: #333;\n     }\n     .crumb li{\n       display: inline;\n       margin-right: 5px;\n       color: #ccc;\n     }\n     .crumb li a{\n       color: #ccc;\n     }\n     .crumb li a:hover{\n       text-decoration: underline;\n       background: inherit;\n     }\n     .list{\n       margin-bottom: 1em;\n     }\n     .list li{\n       min-height: .5em;\n       display: inline-block;\n       width: 33.33%;\n     }\n     .list.block li{\n       width: 100%;\n     }\n     .list li a{\n       display: block;\n       padding: 0 1em;\n       line-height: 2;\n     }\n     @media only screen and (max-width : 768px) {\n       .list li{\n         display: block;\n         width: 100%;\n       }\n       .list li a{\n         line-height: 3;\n         border-bottom: 1px dotted #ccc;\n       }\n     }\n   </style>\n ';
+
+/**
+ * [description]
+ * @param  {[type]} root [description]
+ * @param  {[json]} opts:
+ {
+  flat: false,
+  cwd: realPath,
+  nodir: false,
+  dot: false
+ }
+ * @return {[type]}      [description]
+ */
+
+exports.default = function (root, opts) {
+  root = !root || root === '' ? process.cwd() : root;
+  opts = opts || {};
+
+  return function () {
+    var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(ctx, next) {
+      return _regenerator2.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (next) {
+                _context.next = 6;
+                break;
+              }
+
+              _context.next = 3;
+              return genHtml(ctx, root, opts);
+
+            case 3:
+              return _context.abrupt('return', _context.sent);
+
+            case 6:
+
+              console.log('Send: ' + ctx.path);
+              _context.next = 9;
+              return genHtml(ctx, root, opts);
+
+            case 9:
+              ctx.body = _context.sent;
+              return _context.abrupt('return', next());
+
+            case 11:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, undefined);
+    }));
+
+    return function (_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+};
 
 function merge(target) {
   var sources = [].slice.call(arguments, 1);
   sources.forEach(function (source) {
     for (var p in source) {
-      if (_typeof(source[p]) === 'object') {
+      if ((0, _typeof3.default)(source[p]) === 'object') {
         target[p] = target[p] || (Array.isArray(source[p]) ? [] : {});
         merge(target[p], source[p]);
       } else {
@@ -383,7 +396,7 @@ function merge(target) {
 }
 
 function globPromise(pattern, options) {
-  return new Promise(function (resolve, reject) {
+  return new _promise2.default(function (resolve, reject) {
     (0, _glob2.default)(pattern, options, function (err, files) {
       return err === null ? resolve(files) : reject(err);
     });
@@ -391,9 +404,10 @@ function globPromise(pattern, options) {
 }
 
 function statp(realPath) {
-  return new Promise(function (resolve, reject) {
+  return new _promise2.default(function (resolve, reject) {
     _fs2.default.stat(realPath, function (err, stats) {
       return err === null ? resolve(stats) : reject(err);
     });
   });
 }
+//# sourceMappingURL=index.js.map
