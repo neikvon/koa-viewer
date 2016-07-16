@@ -1,6 +1,6 @@
 {
   "name": "koa-viewer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Directory and file viewer for koa 2",
   "main": "dist/index.js",
   "scripts": {
